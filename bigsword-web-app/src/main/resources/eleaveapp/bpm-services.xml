@@ -1,0 +1,20 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="
+   http://www.springframework.org/schema/beans     
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+
+	<bean id="userBpmService" class="com.bigsword.eleave.leave.impl.UserBpmServiceImpl">
+		 <property name="leaveRequestDbService" ref="leaveRequestDbService" />
+		 <property name="userDbService" ref="userDbService" />
+	</bean>
+	
+	<bean id="leaveBpmService" class="com.bigsword.eleave.leave.impl.LeaveBpmServiceImpl">
+		 <property name="leaveRequestDbService" ref="leaveRequestDbService" />
+		 <property name="taskService" ref="taskService" />
+		 <property name="runtimeService" ref="runtimeService" />
+	</bean>
+	
+
+</beans>

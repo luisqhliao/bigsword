@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+<!-- <classPathEntry
+		location="D:/apache-maven/repository/mysql/mysql-connector-java/5.1.38/mysql-connector-java-5.1.38.jar" /> -->
+	<classPathEntry
+		location="C:/Users/Administrator/.m2/repository/mysql/mysql-connector-java/5.1.38/mysql-connector-java-5.1.38.jar" />
+		
+	<context id="context1">
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://localhost:3306/bigsword" userId="bigsword"
+			password="bigsword" />
+		<javaModelGenerator targetPackage="bigsword.eleave.db.object.model"
+			targetProject="bigsword-eleave-db-objects" />
+		<sqlMapGenerator targetPackage="bigsword.eleave.db.object.mapper"
+			targetProject="bigsword-eleave-db-objects/src/main/resources" />
+		<javaClientGenerator targetPackage="bigsword.eleave.db.object.mapper"
+			targetProject="bigsword-eleave-db-objects" type="XMLMAPPER" />
+		<table schema="bigsword" tableName="category_lookup" />
+		<table schema="bigsword" tableName="department" />
+		<table schema="bigsword" tableName="grade" />
+		<table schema="bigsword" tableName="bs_leave_management" />
+		<table schema="bigsword" tableName="bs_leave_request" />
+		<table schema="bigsword" tableName="special_date" />
+		<table schema="bigsword" tableName="bs_user" />
+		<table schema="bigsword" tableName="bs_user_attribute" />
+	</context>
+</generatorConfiguration>

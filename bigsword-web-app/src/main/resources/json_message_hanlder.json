@@ -1,0 +1,34 @@
+{
+	'login':{
+		'requestObjectClass':'com.bigsword.eleave.web.json.request.JsonLoginRequest',
+		'responseObjectClass':'com.bigsword.eleave.web.json.request.ResponseBase'
+	},
+	'deployWorkflow':{
+		'requestObjectClass':'com.bigsword.eleave.web.json.request.JsonDeployWorkflowRequest',
+		'responseObjectClass':'com.bigsword.eleave.web.json.request.ResponseBase'
+	},
+	'leaveList':{
+		'requestObjectClass':'com.bigsword.eleave.web.json.request.JsonLeaveListRequest',
+		'responseObjectClass':'com.bigsword.eleave.web.json.response.JsonLeaveListResponse'
+	},
+	'refresh':{
+		'requestObjectClass':'com.bigsword.eleave.web.json.object.RequestBase',
+		'responseObjectClass':'com.bigsword.eleave.web.json.response.JsonRefreshResponse'
+	},
+	'submitLeave':{
+		'requestObjectClass':'com.bigsword.eleave.web.json.request.JsonSubmitLeaveRequest',
+		'responseObjectClass':'com.bigsword.eleave.web.json.request.ResponseBase'
+	},
+	'approveLeave':{
+		'requestObjectClass':'com.bigsword.eleave.web.json.request.JsonApproveLeaveRequest',
+		'responseObjectClass':'com.bigsword.eleave.web.json.request.ResponseBase'
+	},
+	'rejectLeave':{
+		'requestObjectClass':'com.bigsword.eleave.web.json.request.JsonRejectLeaveRequest',
+		'responseObjectClass':'com.bigsword.eleave.web.json.request.ResponseBase'
+	},
+	'cancelLeave':{
+		'requestObjectClass':'com.bigsword.eleave.web.json.request.JsonCancelLeaveRequest',
+		'responseObjectClass':'com.bigsword.eleave.web.json.request.ResponseBase'
+	}
+}

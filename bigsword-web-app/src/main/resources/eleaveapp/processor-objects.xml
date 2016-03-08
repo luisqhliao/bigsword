@@ -1,0 +1,31 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="
+   http://www.springframework.org/schema/beans     
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+
+	<bean id="loginProcessor" class="com.bigsword.eleave.web.processors.authentication.LoginProcessor">
+		 <property name="userBpmService" ref="userBpmService" />
+	</bean>
+	
+	<bean id="deployProcessor" class="com.bigsword.eleave.web.processors.workflow.DeployWorkflowProcessor">
+		 <property name="repositoryService" ref="repositoryService" />
+	</bean>
+	
+	<bean id="leaveListProcessor" class="com.bigsword.eleave.web.processors.leave.LeaveListProcessor">
+	 	<property name="userBpmService" ref="userBpmService" />
+	</bean>
+	<bean id="submitLeaveProcessor" class="com.bigsword.eleave.web.processors.leave.SubmitLeaveProcessor">
+		 <property name="leaveBpmService" ref="leaveBpmService" />
+	</bean>
+	<bean id="approveLeaveProcessor" class="com.bigsword.eleave.web.processors.leave.ApproveLeaveProcessor">
+		 <property name="leaveBpmService" ref="leaveBpmService" />
+	</bean>
+	<bean id="rejectLeaveProcessor" class="com.bigsword.eleave.web.processors.leave.RejectLeaveProcessor">
+		 <property name="leaveBpmService" ref="leaveBpmService" />
+	</bean>
+	<bean id="cancelLeaveProcessor" class="com.bigsword.eleave.web.processors.leave.CancelLeaveProcessor">
+		 <property name="leaveBpmService" ref="leaveBpmService" />
+	</bean>
+</beans>

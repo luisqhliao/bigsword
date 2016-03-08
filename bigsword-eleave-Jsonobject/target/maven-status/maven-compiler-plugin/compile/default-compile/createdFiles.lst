@@ -1,0 +1,12 @@
+com\bigsword\eleave\web\json\request\JsonLoginRequest.class
+com\bigsword\eleave\web\json\object\RequestBase.class
+com\bigsword\eleave\web\json\request\JsonSubmitLeaveRequest.class
+com\bigsword\eleave\web\json\response\JsonRefreshResponse.class
+com\bigsword\eleave\web\json\response\JsonLoginResponse.class
+com\bigsword\eleave\web\json\response\JsonLeaveListResponse.class
+com\bigsword\eleave\web\json\object\ValidationError.class
+com\bigsword\eleave\web\json\object\JsonObjLeave.class
+com\bigsword\eleave\web\json\request\JsonDeployWorkflowRequest.class
+com\bigsword\eleave\web\json\request\JsonDashBoardRequest.class
+com\bigsword\eleave\web\json\object\JsonObjLeaveList.class
+com\bigsword\eleave\web\json\object\ResponseBase.class

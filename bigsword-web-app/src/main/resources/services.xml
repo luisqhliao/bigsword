@@ -1,0 +1,28 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   	xsi:schemaLocation="
+   	http://www.springframework.org/schema/beans     
+   	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+<!-- Dummy service impl, for temp -->
+
+<!-- bpm 
+	<import resource="dummy/dummy-bpm-services.xml"/>
+-->
+	<import resource="eleaveapp/bpm-services.xml"/>
+	
+	<!-- db -->
+	<!-- <import resource="dummy/dummy-db-services.xml"/> -->
+	
+	<!-- db -->
+	<import resource="eleaveapp/db-services.xml"/>
+	
+	<import resource="activiti/activiti-configuration.xml"/>
+	<import resource="applicationContext.xml"/>
+
+	<import resource="eleaveapp/processor-objects.xml"/>
+	<import resource="eleaveapp/request-objects.xml"/>
+	
+	
+	
+</beans>

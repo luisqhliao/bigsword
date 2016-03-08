@@ -1,0 +1,35 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="
+   http://www.springframework.org/schema/beans     
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+
+	<bean id="bsUserMapper" name="BsUserMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="bigsword.eleave.db.persistence.BsUserMapper"></property>
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+	</bean>
+	
+	<bean id="userDbService" name="UserDbService" class="bigsword.eleave.db.impl.UserDbServicesImpl">
+		<property name="mapper" ref="BsUserMapper"></property>
+	</bean>
+	
+	<bean id="bsLeaveManagementMapper" name="BsLeaveManagementMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="bigsword.eleave.db.persistence.BsLeaveManagementMapper"></property>
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+	</bean>
+	
+	<bean id="leaveProfileDbService" name="LeaveProfileDbService" class="bigsword.eleave.db.impl.LeaveProfileDbServiceImpl">
+		<property name="mapper" ref="BsLeaveManagementMapper"></property>
+	</bean>
+	
+	<bean id="bsLeaveRequestMapper" name="BsLeaveRequestMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="bigsword.eleave.db.persistence.BsLeaveRequestMapper"></property>
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+	</bean>
+	
+	<bean id="leaveRequestDbService" name="LeaveRequestDbService" class="bigsword.eleave.db.impl.LeaveRequestDbServiceImpl">
+		<property name="mapper" ref="BsLeaveRequestMapper"></property>
+	</bean>
+
+</beans>

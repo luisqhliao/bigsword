@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="jquery-1.9.1.js"></script>
+<script src="sendJSON.js"></script>
+<script>
+var jsonReqeust;
+var jsonResponse;
+$(document).ready(
+function() {
+	$("#case1").click( function(e){
+		$('#dataToSend').val(JSON.stringify(""));
+	});	
+	
+	$("#case2").click( function(e){
+		$('#dataToSend').val(JSON.stringify(""));
+	});	
+}
+)
+</script>
+<script>
+
+
+function displayResponse(json){
+	traverse(json,"");
+}
+
+</script>
+<style>
+body{
+	font-family:"Malgun Gothic";
+	margin:0;
+}
+textarea{
+	font-size:14px;
+	padding:5px;
+	line-height:20px;
+	font-family:"Candara";
+}
+button{
+	padding:4px;
+	font-size:14px;
+}
+</style>
+</head>
+<body>
+	<table width="100%">
+		<tr>
+			<td width="50%" style="vertical-align: text-top;">
+				<div style="overflow-x: hidden; overflow-y: auto; padding: 10px">
+					<div style="border-bottom: 1px solid #777777; padding: 5px">
+						<div style="font-size: 16px; font-weight: bold; color: #333333">case 1</div>
+						<button id="case1">case1</button>
+						
+					</div>
+					<div style="border-bottom: 1px solid #777777; padding: 5px">
+						<div style="font-size: 16px; font-weight: bold; color: #333333">case 2</div>
+						<button id="case2">case2</button>
+					</div>
+				</div>
+			</td>
+			<td width="50%" style="border-left: 1px solid #777777; padding: 10px; vertical-align: text-top;">
+				<div style="overflow-x: hidden; overflow-y: auto;">
+					<div style="font-size: 16px; font-weight: bold; color: #333333">
+						<img src="conditional-approval-icon.png" align="middle" />Data to send:
+					</div>
+					<textarea name="dataToSend" id="dataToSend" cols="80" rows="10">{'cmd':'deployWorkflow'}</textarea>
+					<textarea name="urlToSend" id="urlToSend" cols="50" rows="1">/bigsword/msgchannel</textarea>
+					UserName: <input id="staffId" type="text" /> 
+					Password:<input id="adPsw" type="password" />
+					<p />
+					<button onclick="sendJSONandGetResult('POST','/bigsword/msgchannel',traverse2)">Send JSON</button>
+					<h2>
+						<img src="day-to-day-right-mark.png" /> Result:
+					</h2>
+					<div id="result"></div>
+				</div>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>
+

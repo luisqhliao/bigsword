@@ -1,0 +1,7 @@
+{
+	'caseA':{
+		'requestObjectClass':'test.web.app.request.obj.CaseARequestObj',
+		'requestProcessorClass':'test.web.app.processors.CaseA',
+		'responseObjectClass':'test.web.app.request.obj.CaseAResponseObj'
+	}
+}

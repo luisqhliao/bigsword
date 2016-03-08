@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans   http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+                           http://www.springframework.org/schema/tx      http://www.springframework.org/schema/tx/spring-tx-4.1.xsd">
+	
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+	    <property name="driverClass" value="com.mysql.jdbc.Driver" />
+	    <property name="url" value="jdbc:mysql://localhost:3306/bigsword" />
+	    <property name="username" value="bigsword" />
+	    <property name="password" value="bigsword" />
+	</bean>
+  
+	<bean id="vendorProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+	    <property name="properties">
+	        <props>
+	            <prop key="SQL Server">sqlserver</prop>
+	            <prop key="DB2">db2</prop>
+	            <prop key="Oracle">oracle</prop>
+	            <prop key="MySQL">mysql</prop>
+	        </props>
+	    </property>
+	</bean>
+	
+	<bean id="databaseIdProvider" class="org.apache.ibatis.mapping.VendorDatabaseIdProvider">
+	    <property name="properties" ref="vendorProperties"/>
+	</bean>
+	
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	    <property name="dataSource" ref="dataSource" />
+	    <property name="mapperLocations" value="classpath*:/bigsword/eleave/db/object/mapper/*Mapper.xml"></property>
+	    <property name="databaseIdProvider" ref="databaseIdProvider"/>
+	</bean>
+
+	<bean id="BsUserMapper" name="BsUserMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="bigsword.eleave.db.object.mapper.BsUserMapper"></property>
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+	</bean>
+	
+	<bean id="UserDbService" name="UserDbService" class="bigsword.eleave.db.impl.UserDbServicesImpl">
+		<property name="mapper" ref="BsUserMapper"></property>
+	</bean>
+	
+	<bean id="BsLeaveManagementMapper" name="BsLeaveManagementMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="bigsword.eleave.db.object.mapper.BsLeaveManagementMapper"></property>
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+	</bean>
+	
+	<bean id="LeaveProfileDbService" name="LeaveProfileDbService" class="bigsword.eleave.db.impl.LeaveProfileDbServiceImpl">
+		<property name="mapper" ref="BsLeaveManagementMapper"></property>
+	</bean>
+	
+	<bean id="BsLeaveRequestMapper" name="BsLeaveRequestMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="bigsword.eleave.db.object.mapper.BsLeaveRequestMapper"></property>
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+	</bean>
+	
+	<bean id="LeaveRequestDbService" name="LeaveRequestDbService" class="bigsword.eleave.db.impl.LeaveRequestDbServiceImpl">
+		<property name="mapper" ref="BsLeaveRequestMapper"></property>
+	</bean>
+   
+</beans>
