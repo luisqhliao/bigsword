@@ -30,8 +30,7 @@ public class LeaveListProcessor implements RequestProcessor{
 		User user=ContextUtil.getUsertoUserDataScope(workContext);
 		JsonLeaveListRequest json = (JsonLeaveListRequest)workContext.getJsonRequestObjectFromContext();
 		Date year=DataConvertor.convertCNStringToDate(json.getYear());	
-//		String userId=user.getStaffId();
-		String userId="002";
+		String userId=user.getStaffId();
 		List<LeaveRequest> leaveRequests=userBpmService.retrieveLeaveFromMe(userId,year);
 		JsonObjLeaveList jsonObjLeaveList=null;
 		List<JsonObjLeave> leaves=null;

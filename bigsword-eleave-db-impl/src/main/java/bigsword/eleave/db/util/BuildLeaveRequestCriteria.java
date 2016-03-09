@@ -18,10 +18,10 @@ public class BuildLeaveRequestCriteria {
 			criteria.andLeaveTypeEqualTo(leaveRequestDto.getLeaveType());
 		}
 		if(leaveRequestDto.getFromDate()!=null){
-			criteria.andStartDateEqualTo(leaveRequestDto.getFromDate());
+			criteria.andStartDateGreaterThanOrEqualTo(leaveRequestDto.getFromDate());
 		}
 		if(leaveRequestDto.getToDate()!=null){
-			criteria.andToDateEqualTo(leaveRequestDto.getToDate());
+			criteria.andToDateLessThanOrEqualTo(leaveRequestDto.getToDate());
 		}
 		if(leaveRequestDto.getTaskId()!=null){
 			criteria.andTaskIdEqualTo(leaveRequestDto.getTaskId());

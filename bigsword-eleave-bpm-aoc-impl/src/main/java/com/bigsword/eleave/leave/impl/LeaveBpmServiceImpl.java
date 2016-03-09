@@ -34,11 +34,11 @@ public class LeaveBpmServiceImpl implements LeaveBpmService {
 			Task task=taskService.createTaskQuery().processInstanceId(leave.getId()).singleResult();
 			leaveRequest.setTaskId(leave.getId());
 			leaveRequest.setStatus(LeaveStatus.SUBMIT);
-//			if(StringUtils.isEmpty(leaveRequest.getRequestId())){
+			if(StringUtils.isEmpty(leaveRequest.getRequestId())){
 				leaveRequestDbService.addLeaveRequest(leaveRequest);
-//			}else{
-//				leaveRequestDbService.updateLeaveRequest(leaveRequest);
-//			}
+			}else{
+				leaveRequestDbService.updateLeaveRequest(leaveRequest);
+			}
 			
 			HashMap<String, Object> submitMap = new HashMap<String, Object>();
 		    submitMap.put("emp",leaveRequest.getUserId());

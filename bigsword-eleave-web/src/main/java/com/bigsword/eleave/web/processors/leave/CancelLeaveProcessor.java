@@ -25,8 +25,7 @@ public class CancelLeaveProcessor implements RequestProcessor{
 		 logger.debug("json cmd" + json.getCmd());
 		JsonObjLeave jsonObjLeave=json.getJsonleave();
 		LeaveRequest leave=JsonLeaveRequestMapper.populateLeaveRequest(jsonObjLeave);
-//		String userId=user.getStaffId();
-		String userId="123456";
+		String userId=user.getStaffId();
 		leaveBpmService.cancelLeave(leave, userId);
 		return "Done";
 	}

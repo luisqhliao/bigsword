@@ -4,15 +4,13 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class DataConvertor {
-	private static String CN_DATE_FORMATER="YYYY-MM-DD";
+	private static String CN_DATE_FORMATER="yyyy-MM-dd";
 	
 	public static Date convertCNStringToDate(String strDate){
-		SimpleDateFormat sdf=new SimpleDateFormat("YYYY-MM-DD");
+		SimpleDateFormat sdf=new SimpleDateFormat(CN_DATE_FORMATER);
 		Date date=null;
 		try{
 			date=sdf.parse(strDate);
-			System.out.println("strDate"+strDate);
-			System.out.println("Date"+sdf.parse(strDate));
 		}catch(Exception e){
 			e.printStackTrace();
 		}

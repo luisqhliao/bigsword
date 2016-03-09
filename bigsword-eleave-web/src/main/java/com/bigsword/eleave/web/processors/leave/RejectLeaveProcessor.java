@@ -25,8 +25,7 @@ public class RejectLeaveProcessor implements RequestProcessor{
 		 logger.debug("json cmd" + json.getCmd());
 		JsonObjLeave jsonObjLeave=json.getJsonleave();
 		LeaveRequest leave=JsonLeaveRequestMapper.populateLeaveRequest(jsonObjLeave);
-//		String userId=user.getStaffId();
-		String userId="111111";
+		String userId=user.getStaffId();
 		leaveBpmService.declineLeave(leave, userId);
 		return "Done";
 	}
